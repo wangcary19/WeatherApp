@@ -2,13 +2,11 @@
 //  WeatherView.swift
 //  WeatherApp
 //
-//  Created by Stephanie Diep on 2021-11-30.
-//
 
 import SwiftUI
 
 struct WeatherView: View {
-    // Replace YOUR_API_KEY in WeatherManager with your own API key for the app to work
+    
     var weather: ResponseBody
     
     var body: some View {
@@ -66,7 +64,7 @@ struct WeatherView: View {
             VStack {
                 Spacer()
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("Weather now")
+                    Text("Currently, it is")
                         .bold()
                         .padding(.bottom)
                     
@@ -91,7 +89,7 @@ struct WeatherView: View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
-        .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
+        .background(Color(hue: HueFromTemp(temp:weather.main.feelsLike), saturation: 1.0, brightness: 0.354))
         .preferredColorScheme(.dark)
     }
 }
@@ -99,5 +97,23 @@ struct WeatherView: View {
 struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherView(weather: previewWeather)
+    }
+}
+
+func HueFromTemp(temp:Double) -> Double {
+    if temp < 0.0 {
+        return 0.55
+    }
+    else if temp < 10.0 {
+        return 0.60
+    }
+    else if temp < 20.0 {
+        return 0.45
+    }
+    else if temp < 30.0 {
+        return 0.15
+    }
+    else {
+        return 1.0
     }
 }

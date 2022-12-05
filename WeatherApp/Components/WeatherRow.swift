@@ -2,8 +2,7 @@
 //  WeatherRow.swift
 //  WeatherApp
 //
-//  Created by Stephanie Diep on 2021-11-30.
-//
+
 
 import SwiftUI
 
@@ -18,7 +17,7 @@ struct WeatherRow: View {
                 .font(.title2)
                 .frame(width: 20, height: 20)
                 .padding()
-                .background(Color(hue: 1.0, saturation: 0.0, brightness: 0.888))
+                .background(Color(hue: 0.5, saturation: 0.4, brightness: 0.9))
                 .cornerRadius(50)
 
             
